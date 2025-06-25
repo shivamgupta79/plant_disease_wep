@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #a8edea, #fed6e3);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h2 {
+            color: #2e7d32;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        h3 {
+            color: #555;
+            font-weight: 500;
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        img {
+            margin-top: 20px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 320px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .advice-box {
+            background-color: #f4f6f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 25px;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+            font-size: 15px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            background-color: #388e3c;
+            color: white;
+            padding: 10px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #2e7d32;
+        }
+
+        .emoji-label {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2 class="emoji-label">🔍 Prediction:</h2>
+        <h2 style="color:#33691e">{{ result }}</h2>
+        
+        <h3>🧠 Confidence: <strong>{{ confidence }}%</strong></h3>
+        
+        <img src="{{ filepath }}" alt="Uploaded Leaf Image">
+
+        {% if advice %}
+            <div class="advice-box">
+                <strong>🌿 Groq AI Treatment Advice:</strong><br><br>
+                {{ advice }}
+            </div>
+        {% else %}
+            <p style="color:red;">❌ No advice available.</p>
+        {% endif %}
+
+        <a href="/">🔁 Predict Another</a>
+    </div>
+</body>
+</html>
 
